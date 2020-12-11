@@ -1,0 +1,100 @@
+body {
+    font-family: sans-serif;
+    font-size: 9pt;
+    background: url(img/buenefb.jpg);
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+
+header {
+    background-color: #343A40;
+}
+
+.carousel-inner{
+    width: 100%;
+
+}
+.carousel-caption{
+
+    background: rgba(255, 0, 43, 0.541);
+
+}
+.carousel-caption:hover {
+    background: rgb(255, 0, 43)
+}
+
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-primary:focus, .btn-primary:active:focus {
+    background-color:  #343A40 !important;
+    border-color: #343A40 !important;
+}
+
+.tabcontent {
+    display: none;
+    height: 100%;
+    padding: 1em;
+    margin: 1em;
+    background-color:  #343a40e7;
+    color: white;
+  }
+
+.show{
+    display: block;
+}
+.bandcontend{
+    text-align: center;
+    display: none;
+    height: 100%;
+    padding: 1em;
+    margin: 1em;
+    background-color:  #343a40e7;
+    color: white;
+  }
+
+.bandcontend>img{
+    width: 75%;
+    height: 75%;
+
+}
+
+  #success{
+      display: none;
+  }
+
+.text-center{
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: #343a40e7;
+    color: white;
+}
+
+#Bands{
+    background-color:  #343a4000;
+}
+.name{
+    color: yellow;
+}
+
+.features-boxed {
+    color: #ffffff;
+    background-color: #eef4f7;
+    background: rgba(238,244,247,0);
+  }
+
+.box{
+    background-color: #343a40e7;
+      padding: 1em;
+      margin: 1em;
+  }
+
+.box>h3{
+      text-align: center;
+  }
+
+h2{
+      color: yellow;
+  }
+h1{
+    color: yellow;
+}
