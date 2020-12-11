@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Woodrock Festival</title>
+        <link rel="icon" type="image/png" href="img/logo-schrift.png">
+
+        <script src="guestbook.json"></script>
+
+        <script src="app.js"></script>
+        <script src="pages.js"></script>
+        <link rel="stylesheet" href="style.css">
+
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+        <script>
+        //Wenn die Seite geladen wird werden die Seiten erzeugt
+          window.addEventListener("load", () => {
+            let pages =[
+              {
+              name: "news",
+              klass: News,
+              label: "News",
+              hidden: false,
+            },
+            {
+              name: "guestbook",
+              klass: Guestbook,
+              label: "Gästebuch",
+              hidden: false,
+            },
+            {
+              name: "tickets",
+              klass: Tickets,
+              label: "Tickets",
+              hidden: false,
+            },
+            {
+              name: "bands",
+              klass: Bands,
+              label: "Bands",
+              hidden: false,
+            },
+            {
+              name: "events",
+              klass: Events,
+              label: "Events",
+              hidden: false,
+            },
+            {
+              name: "infos",
+              klass: Infos,
+              label: "Infos",
+              hidden: false,
+            },
+            {
+              name: "galerie",
+              klass: Galerie,
+              label: "Galerie",
+              hidden: false,
+            },
+            {
+              name: "mitmachen",
+              klass: Mitmachen,
+              label: "Mitmachen",
+              hidden: false,
+            },
+            {
+              name: "kontakt",
+              klass: Kontakt,
+              label: "Kontakt",
+              hidden: false,
+            },
+            ];
+
+          let app = new App(pages);
+          //Die Seite "News" wird als Startseite angezeigt
+          app.showPage("news");
+          })
+
+        </script>
+    </head>
+    <body>
+        <!-- Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <header>
+        <!-- Navigationsleiste -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo-schrift.png" alt="Menü" width="60" height="60" class="d-inline-block align-top" loading="lazy">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto" id="liste">
+              </ul>
+            </div>
+          </nav>
+          <template id="template-app-menu-li">
+            <li class="nav-item" data-page-name="$NAME$">
+              <a data-toggle="collapse" data-target=".navbar-collapse" class="nav-link tablink" href="">$LABEL$</a>
+            </li>
+          </template>
+        </header>
+
+        <!-- Hauptcontend -->
+        <!-- Dieser Text wird immer angezeigt -->
+        <main role="main">
+            <section class="text-center">
+              <h1>Dobler Woodrock Festival</h1>
+              <p>
+                  Das kleine aber feine Rock Festival auf dem Dobel!
+              </p>
+          </section>
+
+          <div class="container padding-1">
+            <!-- Erste Seite: News -->
+            <div id="News" class="tabcontent" >
+                <h2>News</h2>
+                <p>
+                    Hier findet Ihr die wichtigsten Neuigkeiten Rund ums Festival.
+                </p>
+                <p>
+                  Der perfekte Ort um auf dem laufenden zu bleiben.
+                </p>
+                <!-- Eine Liste mit den aktuellen Meldungen -->
+                <ul class="list-unstyled">
+                  <li class="media">
+
+                    <div class="media-body">
+                      <h5 class="mt-0 mb-1">CANCELED</h5>
+                      Hallo liebe Woodrocker, es hat sich ja in den vergangenen
+                      Wochen schon angekündigt, schweren Herzens müssen wir das
+                      diesjährige Woodrock Festival absagen… Wir wollten euch in
+                      diesen Wochen mit unseren Bands überraschen und alles
+                      Weitere bekannt geben. Dass uns COVID-19 so in unserem
+                      täglichen Leben einschränkt hat wahrscheinlich keiner
+                      erwartet, doch momentan steht unser aller Gesundheit
+                    </div>
+                  </li>
+                  <li class="media my-4">
+
+                    <div class="media-body">
+                      <h5 class="mt-0 mb-1">2020 WIRD JUBILIERT!</h5>
+                      Wir feiern 10-jähriges! Weitere News in Kürze.
+                    </div>
+                  </li>
+                  <li class="media">
+
+                    <div class="media-body">
+                      <h5 class="mt-0 mb-1">ONLINE VVK 2019 BEENDET</h5>
+                      Der Online-Vorverkauf 2019 ist beendet.Ihr bekommt weiterhin
+                      Tickets bei allen Filialen der Sparkasse Pforzheim Calw und
+                      bei Schreibwaren Joel,  Hauptstraße 18, 75335 Dobel.
+                      Ebenfalls könnt Ihr noch an der Abendkasse eure Tickets beziehen
+                    </div>
+                  </li>
+                </ul>
+            </div>
+            <!-- Zweite Seite: Gästebuch: Diese Seite befindet sich noch im Aufbau -->
+            <div id="Guestbook" class="tabcontent">
+              <h2>Gästebuch</h2>
+              <p>
+
+                Hier könnt Ihr Anmerkungen und Anregungen rund ums Festival da lassen. Über Feedback freuen wir uns immer!
+              </p>
+              <p>
+                !Diese Seite befindet sich aktuell noch im Aufbau!
+              </p>
+          </div>
+            <!-- Zweite Seite: Tickets (Hier wird ein Link zum externen Ticketportal eingefügt) -->
+            <div id="Tickets" class="tabcontent" >
+                <h2>Tickets</h2>
+                <p>
+                  Der Online-Vorverkauf 2019 ist beendet.
+                  Ihr bekommt weiterhin Tickets bei allen Filialen der Sparkasse
+                  Pforzheim Calw und bei Schreibwaren Joel,  Hauptstraße 18, 75335 Dobel.
+                </p>
+                <p>
+                  Ebenfalls könnt Ihr noch an der Abendkasse eure Tickets beziehen (solange der Vorrat reicht)
+                </p>
+            </div>
+            <!-- 3. Seite Bands -->
+            <!-- Aufbau Responsiv mit col-sm, col-md und col-lg -->
+            <!-- Die Bands werden Aufgerufen mit der Methode openBand('Bandname') -->
+            <div id="Bands" class="tabcontent">
+              <div class="features-boxed" id="uebersicht" >
+                <div class="container">
+                    <div class="row justify-content-center features">
+                        <div class="col-sm-7 col-md-5 col-lg-4 item">
+                            <div class="box">
+                                <h3 class="name">BIG BALLS</h3>
+                                <p class="description">On Stage am Samstag ab 22:30 Uhr</p>
+                                <a class="learn-more" href="#bigballs" onclick="openBand('BIGBALLS')">Mehr anzeigen »</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 col-md-5 col-lg-4 item">
+                            <div class="box">
+                                <h3 class="name">CREKKO</h3>
+                                <p class="description">On Stage am Freitag ab 22:30 Uhr</p>
+                                <a class="learn-more" href="#crekko" onclick="openBand('CREKKO')">Mehr anzeigen »</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 col-md-5 col-lg-4 item">
+                            <div class="box">
+                                <h3 class="name">BALLS GONE WILD </h3>
+                                <p class="description">On Stage am Samstag ab 21:15 Uhr</p>
+                                <a class="learn-more" href="#ballsgonewild" onclick="openBand('BALLSGONEWILD')">Mehr anzeigen »</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 col-md-5 col-lg-4 item">
+                            <div class="box">
+                                <h3 class="name">STRY </h3>
+                                <p class="description">On Stage am Samstag ab 19:15 Uhr</p>
+                                <a class="learn-more" href="#" onclick="openBand('STRY')">Mehr anzeigen »</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 col-md-5 col-lg-4 item">
+                            <div class="box">
+                                <h3 class="name">HEART OF CHROME </h3>
+                                <p class="description">On Stage am Freitag Ab 21:00 Uhr</p>
+                                <a class="learn-more" href="#" onclick="openBand('HEARTOFCHROME')">Mehr anzeigen »</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 col-md-5 col-lg-4 item">
+                            <div class="box">
+                                <h3 class="name">ROLLDOGX</h3>
+                                <p class="description">On Stage am Samstag ab 20:15 Uhr</p>
+                                <a class="learn-more" href="#" onclick="openBand('ROLLDOGX')">Mehr anzeigen »</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 col-md-5 col-lg-4 item">
+                          <div class="box">
+                              <h3 class="name">THE SCIENCES </h3>
+                              <p class="description">On Stage am Freitag ab 20:00 Uhr</p>
+                              <a class="learn-more" href="#" onclick="openBand('THESCIENCES')">Mehr anzeigen »</a>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+          <!-- Detailansicht der verschiednenen Bands -->
+          <!-- Mit der Methode closeBand wird die Detiailansicht verlassen -->
+          <div class="bandcontend" id="BIGBALLS">
+          <h2>BIG BALLS</h2>
+          <p>Big Balls – Stuttgart!!</br>
+            Die Stuttgarter AC/DC Tribute Band ist unser Headliner am Woodrock Samstag, 06.07.2019!!</br>
+            Ab 22:30 Uhr rocken Sie unsere Bühne!
+            <a href="https://www.bigballsstuttgart.de/">www.bigballsstuttgart.de</a>
+          </p>
+          <p><a href="#" onclick="closeBand()">Zurück</a></p>
+          <img src="img/bb.jpg" alt="">
+          <p>
+            <a href="#" onclick="closeBand()">Zurück</a>
+          </p>
+          </div>
+
+          <div class="bandcontend" id="BIGBALLS">
+            <h2>BIG BALLS</h2>
+            <p>Big Balls – Stuttgart!!</br>
+              Die Stuttgarter AC/DC Tribute Band ist unser Headliner am Woodrock Samstag, 06.07.2019!!</br>
+              Ab 22:30 Uhr rocken Sie unsere Bühne!
+              <a href="https://www.bigballsstuttgart.de/">www.bigballsstuttgart.de</a>
+            </p>
+            <img src="img/bb.jpg" alt="">
+            <p>
+              <a href="#" onclick="closeBand()">Zurück</a>
+            </p>
+            </div>
+
+            <div class="bandcontend" id="CREKKO">
+              <h2>CREKKO</h2>
+              <p>Wir präsentieren unseren Headliner am Woodrock-Freitag:</br>
+                CREKKO!</br>
+                Präzise und druckvoll, von ruhigen Klängen bis zu brettharten Riffs: die drei Musiker um Frontmann Marco bringen es immer auf den Punkt!
+                Wir freuen uns, die Jungs dieses Jahr wieder begrüßen zu dürfen!
+              </p>
+              <img src="img/crekko.jpg" alt="">
+              <p>
+                <a href="#" onclick="closeBand()">Zurück</a>
+              </p>
+              </div>
+
+              <div class="bandcontend" id="BALLSGONEWILD">
+                <h2>BALLS GONE WILD</h2>
+                <p>
+                  Balls Gone Wild – Das ist der Punk und Hardrock Sound der 70er und 80er Jahre mit frischem Wind im Hier und Jetzt. </br>
+                  <a href="https://www.youtube.com/watch?v=iyQ_oRExcNc">Hier</a> findet Ihr Viedos von den Jungs.
+                </p>
+                <img src="img/ballsgonewild.jpg" alt="">
+                <p>
+                  <a href="#" onclick="closeBand()">Zurück</a>
+                </p>
+                </div>
+
+                <div class="bandcontend" id="STRY">
+                  <h2>STRY</h2>
+                  <p>
+                    Something to remind you:</br>
+                    Alternative-Rock aus Pforzheim, kantige Lyrics prallen auf eingängige Harmonien – rau und leidenschaftlich!
+                    <a href="www.stry-online.com">www.stry-online.com</a>
+                  </p>
+                  <img src="img/stry.jpg" alt="">
+                  <p>
+                    <a href="#" onclick="closeBand()">Zurück</a>
+                  </p>
+                  </div>
+
+                  <div class="bandcontend" id="HEARTOFCHROME">
+                    <h2>HEART OF CHROME</h2>
+                    <p>
+                      die vier Jungs von Heart of Chrome bieten euch alles was das Rockerherz begehrt!
+                      Verzerrte Stromgitarren gepaart mit groovenden Rhythmen und einem satten Bass werden durch eine markante Stimme abgerundet.
+                      </br>Unbedingt reinhören!
+                      <a href="https://www.youtube.com/watch?v=UINuWf4mQQ8">https://www.youtube.com/watch?v=UINuWf4mQQ8</a>
+                    </p>
+                    <img src="img/heartofchrome.jpg" alt="">
+                    <p>
+                      <a href="#" onclick="closeBand()">Zurück</a>
+                    </p>
+                    </div>
+
+                  <div class="bandcontend" id="ROLLDOGX">
+                    <h2>ROLLDOGX</h2>
+                    <p>
+                      Die Stuttgarter Crossover Band “rolldogx” präsentiert sich 2008 mit neuem Drummer und neuer Scheibe im Gepäck. Mit ihrer in Eigenregie produzierten EP drücken die “Dogx” mal wieder mächtig aufs Gas. Vier druckvolle Songs bringen das Gehör auf Betriebstemperatur, was die fünf Jungs auf Ihren nächsten Rock Shows unter Beweis stellen werden. Support – Gigs von Bands wie der “Jazzkantine”, “Stone The Crow” und “Son Goku” (Thomas D) bestätigen Ihre energiegeladene Live Performance.
+                    </p>
+                    <img src="img/rolldogx.jpg" alt="">
+                    <p>
+                      <a href="#" onclick="closeBand()">Zurück</a>
+                    </p>
+                  </div>
+
+                  <div class="bandcontend" id="THESCIENCES">
+                    <h2>THE SCIENCES</h2>
+                    <p>
+                      Die Jungs machen Rock/Hardrock mit leichten Punk Einflüssen. Ihre größten Einflüsse sind The Hellacopters und Thin Lizzy. https://www.backstagepro.de/the-sciences
+                    </p>
+                    <img src="img/thesciences.jpg" alt="">
+                    <p>
+                      <a href="#" onclick="closeBand()">Zurück</a>
+                    </p>
+                  </div>
+          </div>
+          <!-- 4. Seite Events -->
+          <div id="Events" class="tabcontent" >
+            <h2>Events</h2>
+            <h4>Waldweihnacht im Bauagen:</h4>
+            <p>
+              Traditionell hat der Bauwagen am 2. Weihnachtsfeiertag geöffnet.
+              Nach der Waldweihnacht könnt Ihr bei einem Glühwein den Abend ausklingen lassen.
+              Ab 20:30 Uhr spielen wie jedes Jahr unser Freunde von Pussycat Motel eine
+              Auswahl Ihrer Evergreens!<br><br>
+              (Leider kann die Waldweihnacht im Bauwagen 2020 aufgrund der aktuellen
+              Situation nicht stattfinden.)
+            </p>
+
+        </div>
+        <!-- 5. Seite Infos -->
+        <div id="Infos" class="tabcontent" >
+          <h2>Infos</h2>
+          <h3>Festival ABC</h3>
+          <p>
+          <h4>A</h4>
+          <p>Abendkasse:<br>
+          Es wird eine Abendkasse geben. An der Abendkasse wird es jeweils nur Tagestickets geben.
+          </p>
+          <p>Abgenommene Gegenstände:<br>
+          Werden euch bei den Einlasskontrollen zum Festivalgelände Gegenstände mit geringem Wert (Gashupen, Vuvuzelas, einfache Messer, Glas, usw.) von unseren Sicherheitskräften abgenommen, landen diese sofort im Müll. Verbotene Gegenstände werden ausnahmslos abgenommen und umgehend entsorgt.
+          Erspart uns und euch also bitte den Ärger und lasst die Sachen einfach zu Hause.
+          </p>
+          <p>Allgemeine Geschäftsbedingungen:<br>
+          Die Woodrock Festival AGBs findet ihr <a href="https://woodrock-dobel.de/agb/" target="_blank" rel="noopener noreferrer">hier</a>.
+          </p>
+          <p>Altersbeschränkungen:<br>
+          Der Zutritt zum Festival ist durch den §5 des Jugendschutzgesetz (JuSchG) geregelt.
+          Das heißt das Festival darf von Jugendlichen zwischen 16 und 18 Jahren ohne Begleitung
+          bis 24:00 Uhr besucht werden. Kindern und Jugendlichen unter 16 Jahren ist der Besuch
+          nur mit einer erziehungsbeauftragten oder erziehungsberechtigten Person und ausgefülltem
+          und unterschriebenen U18 Formular gestattet.<br>
+          Allerdings gilt: Egal wie alt ihr seid, In Begleitung einer erziehungsbeauftragten
+          Person dürft ihr das Festival besuchen. Erziehungsbeauftragte Person kann grundsätzlich
+          jeder sein, der über 18 Jahre alt ist. In diesem Fall muss das U18 Formular ausgefüllt
+          und unterschrieben mitgebracht werden.
+          </p>
+          <h4>B</h4>
+          <p>Bahnhof:<br>
+          Bad Herrenalb Bahnhof ist der nächste Bahnhof zum Festival.
+          Dort sind auch die Buslinien 716 und 719 zur Weiterfahrt vertreten.
+          </p>
+          <h4>C</h4>
+          <p>Crew & Security:<br>
+          Unsere Crew arbeitet freiwillig und unentgeltlich am Festival mit.
+          Deren Job ist stressig genug, also setzt sie nicht unnötig unter Druck.
+          Wir setzen alles daran euch eure Wünsche zu erfüllen. Geht einfach freundlich
+          mit uns um und wir werden alles in unserer Macht stehende tun, um euren Wünschen nachzukommen.
+          Im Streitfall oder bei Problemen wendet euch bitte direkt an unsere Crew oder an
+          unser Sicherheitspersonal und schildert das Problem.
+          Generell gilt: Der Crew und dem Sicherheitspersonal ist immer Folge zu leisten.
+          </p>
+          <h4>D</h4>
+          <p>Diebstahl:<br>
+          Im Grunde genommen hilft nichts außer aufpassen!!<br>
+          Tragt eure Wertsachen am besten immer bei euch. Falls es doch Probleme
+          gibt, wendet euch bitte direkt an unser Sicherheitspersonal. Speziell
+          für die Camper unter euch empfehlen wird dringend keine Wertsachen in euren Zelten
+          zurück zu lassen. Für abhanden gekommene Gegenstände können wir keine Haftung übernehmen.
+          </p>
+          <h4>E</h4>
+          <p>Einlass: <br>
+          Einlass auf das Festivalgelände ist Freitags und Samstags ab 18:00 Uhr.
+          Am Eingang zum Festivalgelände werden Personenkontrollen durchgeführt.
+          Dort könnt ihr eure Tickets abgeben und eure Bändchen abholen.
+          </p>
+          <h4>F</h4>
+          <p>Feuer: <br>
+          Offenes Feuer und flüssige Grillanzünder sind auf dem Festivalgelände verboten.
+          </p>
+          <h4>G</h4>
+          <p>Geldautomaten:
+          Die nächsten Geldautomaten sind ca. 15 min Fußweg vom Festival entfernt.
+          Dobel Ortsmitte, an der Hauptstraße.
+          </p>
+          <h4>H</h4>
+          <p>Hunde / Tiere im Allgemeinen:<br>
+          Tiere im Allgemeinen sind weder auf dem Festivalgelände
+          noch auf dem Parkplatz oder Campingplatz erlaubt. Ausgenommen von dieser
+          Regelung sind Blindenhunde mit entsprechender Ausbildung und nur in Verbindung
+          mit einer entsprechenden Bescheinigung. Bitte beachtet, dass sich diese Ausnahme
+          auf das Festivalgelände und den Parkplatz beschränkt.
+          </p>
+          <h4>I</h4>
+          <p>Infopoint / Kasse:<br>
+          Am Haupteingang an der Kasse gibt es einen offiziellen Infopoint.
+          Hier bekommt ihr Informationen rund um das Festival, die Organisation
+          und vieles mehr. Der Infopoint ist außerdem der Ort an dem gefundene Sachen
+          abgegeben werden. Fragen / Kritik etc. können hier natürlich auch abgeben werden.
+          Unsere Mitarbeiter im Infopoint leiten dies umgehend weiter.
+          </p>
+          <h4>K</h4>
+          <p>Kameras / Fotoausrüstung: <br>
+          Smartphones, Handys mit Kamerafunktion und normale Digicams sind erlaubt.
+          Spiegelreflexkameras mit wechselbaren Objektiven sind nur in Verbindung mit
+          einem entsprechenden Presseausweis erlaubt.
+          </p>
+          <h4>M</h4>
+          <p>Müll: <br>
+          Denn wo gehobelt wird, da fallen Späne. Und wo gefeiert wird (insbesondere mit vielen Leuten)
+          da entsteht Müll. Viel Müll. Das ist uns klar. Das bedeutet aber nicht, dass jeder Festivalgast
+          über einen Freifahrtschein zur Müllproduktion verfügt. Die Kosten für Geländeinstandsetzung und
+          Müllbeseitigung sind enorm. Jeder kann ein kleines bisschen dabei helfen dies überschaubarer zu machen.
+          Bitte habt Verständnis dafür. Das hilft uns das Festival weiterhin so günstig zu veranstalten.
+          </p>
+          <h4>U</h4>
+          <p>Unwetter: <br>
+          Im Falle von Unwetter und/ oder schweren Gewittern, werden wir euch rechtzeitig darauf
+          hinweisen, das Festivalgelände zu verlassen. Dieser Anweisung ist unverzüglich
+          folge zu leisten, es geht um eure eigene Sicherheit!
+          </p>
+          <h4>V</h4>
+          <p>Verbotene Gegenstände: <br>
+          Auf dem Festivalgelände sind verboten:<br>
+          Waffen, spitze Gegenstände (auch sog. Selfie Sticks!), Glas, mitgebrachte Getränke jeglicher Art,
+          Speisen, professionelles Fotoequipment (Spiegelreflexkameras), Gashupen, Vuvuzelas, Brandbeschleuniger
+          Aggregate, Benzin, Porzellan, Tiere, Autobatterien, Pyrotechnik, Schleudern, Katapulte.
+          </p>
+          <h4>Z</h4>
+          <p>Zuletzt: <br>
+          Wir freuen uns auf ein tolles Woodrock Festival mit euch!
+          </p>
+          </p>
+
+      </div>
+      <!-- 6. Seite Galerie -->
+      <!-- Die Bildauswahl wurde für die Abgabe beschränkt -->
+      <!-- Carousel von Bootstrap wurde verwendet -->
+      <div id="Galerie" class="tabcontent" >
+        <section class="container carousel">
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="container">
+                  <img class="d-block w-100" src="img/canceled.jpg" alt="Overview Mode">
+                    <div class="carousel-caption text-top">
+                      <h1>Wichtige Meldung!</h1>
+                      <p>Leider mussten wir das Dobler Woodrock Festival 2020 absagen. Weitere Infos findet Ihr hier:</p>
+                      <p><a class="btn btn-lg btn-primary" href="#" role="button">mehr Infos</a></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="container">
+                      <img class="d-block w-100" src="img/carousel2.jpg" alt="Overview Mode" width="100%" height="50%">
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="container">
+                      <img class="d-block w-100" src="img/carousel4.jpg" alt="Overview Mode">
+                    </div>
+                  </div>
+                </div>
+
+              <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          </section>
+
+    </div>
+    <!-- 7. Seite Mitmachen -->
+      <div id="Mitmachen" class="tabcontent">
+        <h2>Mitmachen</h2>
+        <p>
+          <h4>Streetteam</h4>
+          <p>
+            Wir plakatieren jedes Jahr die Straßen im Umkreis wie die Weltmeister!
+            Jedes Jahr aus neue haben wir Spaß beim Aufhängen und bekleben.<br>
+            Du möchtest uns bei Marketingaktionen oder Werbung unterstützen?<br>
+            Dann schreib doch eine Mail ans <a href="mailto:info@woodrock-dobel.de">Team</a>!
+          </p>
+        </p>
+        <p>
+          <h4>Aufbau</h4>
+          <p>
+            Für den Aufbau unseres Festivals suchen wir jedes Jahr tatkräftige Unterstützung.
+            Wir sind im Voraus eine Woche beschäftigt die ganze Kulisse zu dem zu machen was Du
+            von uns gewohnt bist.<br>
+            Du kannst anpacken und neue Ideen einbriungen?<br>
+            Dann schreib doch eine Mail ans <a href="mailto:info@woodrock-dobel.de">Team</a>!
+          </p>
+        </p>
+    </div>
+    <!-- 8. Seite Kontakt -->
+    <!-- Kontaktformular an yannick@woodrock-dobel.de -->
+    <div id="Kontakt" class="tabcontent" >
+      <h2>Kontakt</h2>
+      <p>
+        <p id="success">Vielen Dank für deine Anfrage wir bearbeiten dein Anliegen so schnell wie möglich!</p>
+        <form class="kontakt" method="POST" action="mailto:yannick@woodrock-dobel.de?subject=Formular" onSubmit="return checkSendForm();">
+          <div class="form-group">
+            <label for="FormControlInput1">Email</label>
+            <input type="email" id="email" class="form-control" id="FormControlInput1" placeholder="Max@Mustermann.de">
+          </div>
+          <div class="form-group">
+            <label for="FormControlInput2">Betreff</label>
+            <input type="text" id="betreff" class="form-control" id="FormControlInput2">
+          </div>
+          <div class="form-group">
+            <label for="FormControlTextarea1">Nachricht</label>
+            <textarea id="nachricht" class="form-control" id="FormControlTextarea1" rows="3"></textarea>
+          </div>
+          <button type ="submit" class="btn btn-primary">Absenden</button>
+        </form>
+      </p>
+  </div>
+</div>
+</main>
+</body>
+</html>
